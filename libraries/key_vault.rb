@@ -1,14 +1,10 @@
 # helper for retrieving a secret from an azure keyvault
-begin
-  require 'azure_key_vault'
-  include Azure::KeyVault::V7_0
-  include Azure::KeyVault::V7_0::Models
-rescue LoadError
-  Chef::Log.error("Missing gem 'azure_key_vault'. Use the default azure_keyvault recipe to install it first")
-end
+
 module Azure
   module KeyVault
     def akv_get_secret(vault, secret_name, spn = {}, secret_version = nil)
+      require 'azure_key_vault'
+
       vault_url = "https://#{vault}.vault.azure.net"
       if secret_version.nil?
         secret_version = ''

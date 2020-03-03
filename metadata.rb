@@ -19,3 +19,5 @@ maintainer_email  'krisz@microsoft.com'
 license           'Apache-2.0'
 description       'LWRPs for retrieving Azure Keyvault Objects'
 version           '0.4.2'
+
+gem 'azure_key_vault'
