@@ -8,7 +8,6 @@ rescue LoadError
 end
 module Azure
   module KeyVault
-
     def akv_get_secret(vault, secret_name, spn = {}, secret_version = nil)
       vault_url = "https://#{vault}.vault.azure.net"
       if secret_version.nil?
@@ -17,8 +16,8 @@ module Azure
       token_provider = create_token_credentials(spn)
       credentials = MsRest::TokenCredentials.new(token_provider)
       client = KeyVaultClient.new(credentials)
-      response = (client.get_secret(vault_url,secret_name,secret_version)).value
-      return response
+      response = client.get_secret(vault_url, secret_name, secret_version).value
+      response
     end
 
     private
@@ -35,7 +34,7 @@ module Azure
       # We define the port because we get a var deprecation error if not defined.
       if spn.nil? || spn.empty?
         @token_provider ||= begin
-          MsRestAzure::MSITokenProvider.new('50342',token_audience)
+          MsRestAzure::MSITokenProvider.new('50342', token_audience)
         end
       else
         validate_service_principal!(spn)
@@ -52,9 +51,8 @@ module Azure
       spn['tenant_id'] ||= ENV['AZURE_TENANT_ID']
       spn['client_id'] ||= ENV['AZURE_CLIENT_ID']
       spn['secret'] ||= ENV['AZURE_CLIENT_SECRET']
-      fail 'Invalid SPN info provided' unless spn['tenant_id'] && spn['client_id'] && spn['secret']
+      raise 'Invalid SPN info provided' unless spn['tenant_id'] && spn['client_id'] && spn['secret']
     end
-
   end
 end
 

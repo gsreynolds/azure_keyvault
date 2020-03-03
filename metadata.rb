@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------
-# Copyright (c) Microsoft Open Technologies, Inc.
+# Copyright:: (c) Microsoft Open Technologies, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,11 +13,9 @@
 # limitations under the License.
 #--------------------------------------------------------------------------
 
-name              "azure_keyvault"
-maintainer        "Kris Zentner"
-maintainer_email  "krisz@microsoft.com"
-license           "Apache 2.0"
-description       "LWRPs for retrieving Azure Keyvault Objects"
-long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "0.4.2"
-recipe            "azure_keyvault", "Installs the azure gem during compile time"
+name              'azure_keyvault'
+maintainer        'Kris Zentner'
+maintainer_email  'krisz@microsoft.com'
+license           'Apache-2.0'
+description       'LWRPs for retrieving Azure Keyvault Objects'
+version           '0.4.2'
