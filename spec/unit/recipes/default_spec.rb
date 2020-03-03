@@ -12,8 +12,8 @@ describe 'azure_keyvault::default' do
       ChefSpec::ServerRunner.new.converge(described_recipe)
     end
 
-    it 'installs the azure gem' do
-      expect(chef_run).to install_chef_gem('azure')
+    it 'converges successfully' do
+      expect { chef_run }.to_not raise_error
     end
   end
 end
