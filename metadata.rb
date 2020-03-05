@@ -18,6 +18,5 @@ maintainer        'Kris Zentner'
 maintainer_email  'krisz@microsoft.com'
 license           'Apache-2.0'
 description       'Library for retrieving Azure Keyvault Objects'
-version           '0.5.0'
-
-gem 'azure_key_vault'
+version           '0.5.1'
+chef_version      '>= 14.0'
